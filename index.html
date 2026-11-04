@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kadidiatou Sima — Développeuse Full Stack</title>
+<meta name="description" content="Kadidiatou Sima, développeuse Full Stack web et mobile basée à Dakar : Flutter, React, Angular, NestJS, Node.js.">
+<meta property="og:title" content="Kadidiatou Sima — Développeuse Full Stack">
+<meta property="og:description" content="Développement web et mobile, APIs REST, solutions de paiement. Dakar, Sénégal.">
+<meta property="og:image" content="photo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf8f5; --surface:#ffffff; --text:#22201d; --muted:#6b655e;
+  --line:#e8e2d9; --accent:#a87d45; --accent-soft:#f3ebdf;
+  --radius:14px; --max:1040px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#161412; --surface:#1f1c19; --text:#eeeae4; --muted:#a39b91;
+         --line:#332e29; --accent:#d4a76a; --accent-soft:#2a241d; }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.2}
+h2{font-size:clamp(1.6rem,3vw,2rem);margin-bottom:8px}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px}
+.lead{color:var(--muted);max-width:620px;margin-bottom:36px}
+section{padding:88px 0;border-top:1px solid var(--line)}
+
+/* Nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:Fraunces,serif;font-weight:600;font-size:1.15rem;text-decoration:none}
+.logo span{color:var(--accent)}
+.links{display:flex;gap:28px;list-style:none;font-size:.92rem}
+.links a{text-decoration:none;color:var(--muted);transition:color .2s}
+.links a:hover{color:var(--text)}
+
+/* Hero */
+.hero{padding:96px 0 104px;border-top:none}
+.hero .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.4rem,6vw,3.8rem);letter-spacing:-.01em;margin-bottom:14px}
+.hero .role{font-size:1.2rem;color:var(--accent);font-weight:500;margin-bottom:20px}
+.hero p.intro{color:var(--muted);font-size:1.06rem;max-width:540px;margin-bottom:32px}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px}
+.chip{font-size:.83rem;padding:6px 12px;border:1px solid var(--line);border-radius:99px;color:var(--muted);background:var(--surface)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:500;font-size:.95rem;text-decoration:none;transition:transform .15s,background .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--text);color:var(--bg)}
+.btn.ghost{border:1px solid var(--line);background:var(--surface)}
+.portrait{justify-self:end;position:relative;width:100%;max-width:340px}
+.portrait img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:24px;display:block;position:relative;z-index:1}
+.portrait::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:1.5px solid var(--accent);border-radius:24px}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px}
+.about-grid p{margin-bottom:16px;color:var(--muted)}
+.about-grid p strong{color:var(--text);font-weight:600}
+.stats{display:grid;gap:14px;align-content:start}
+.about-photo{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:var(--radius);display:block}
+.live{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:#2f7d4f;margin-left:10px;vertical-align:middle;font-family:Inter,sans-serif}
+.live::before{content:"";width:7px;height:7px;border-radius:50%;background:#2f9e5e}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+.stat b{display:block;font-family:Fraunces,serif;font-size:1.5rem;color:var(--accent)}
+.stat span{font-size:.9rem;color:var(--muted)}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.skill h3{font-family:Inter,sans-serif;font-size:.95rem;font-weight:600;margin-bottom:12px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.8rem;padding:4px 10px;border-radius:6px;background:var(--accent-soft);color:var(--text)}
+
+/* Projects */
+.projects{display:grid;gap:24px}
+.project{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px;display:grid;grid-template-columns:1fr 1.3fr;gap:32px}
+.project .kicker{font-size:.8rem;color:var(--accent);font-weight:600;margin-bottom:6px}
+.project h3{font-size:1.5rem;margin-bottom:10px}
+.project p{color:var(--muted);margin-bottom:16px}
+.project ul{list-style:none;display:grid;gap:10px}
+.project li{padding-left:22px;position:relative;font-size:.95rem}
+.project li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:1.5px;background:var(--accent)}
+.badge{display:inline-block;margin-top:4px;font-size:.82rem;font-weight:600;padding:6px 12px;border-radius:8px;background:var(--accent);color:#fff}
+.project a.more{display:inline-block;margin-top:16px;font-size:.9rem;font-weight:500;color:var(--accent);text-decoration:none}
+
+/* Timeline */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1.5px;background:var(--line)}
+.item{position:relative;padding-bottom:32px}
+.item:last-child{padding-bottom:0}
+.item::before{content:"";position:absolute;left:-28px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.item .date{font-size:.8rem;color:var(--accent);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.item h3{font-family:Inter,sans-serif;font-size:1.05rem;font-weight:600;margin:2px 0}
+.item .org{color:var(--muted);font-size:.93rem;margin-bottom:6px}
+.item p{font-size:.95rem;color:var(--muted);max-width:640px}
+
+/* Education */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.edu-grid h3.sub{font-family:Inter,sans-serif;font-size:1rem;font-weight:600;margin-bottom:18px}
+.certs{list-style:none;display:grid;gap:10px}
+.certs li{font-size:.93rem;padding:12px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;display:flex;justify-content:space-between;gap:12px}
+.certs li span{color:var(--muted);white-space:nowrap}
+.langs{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px}
+
+/* Contact */
+.contact{text-align:center}
+.contact .lead{margin:0 auto 32px}
+.contact .btns{justify-content:center}
+footer{padding:32px 0;text-align:center;font-size:.85rem;color:var(--muted);border-top:1px solid var(--line)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* Responsive */
+@media (max-width:820px){
+  .links{display:none}
+  .hero{padding:56px 0 72px}
+  .hero .wrap,.about-grid,.project,.edu-grid{grid-template-columns:1fr}
+  .portrait{justify-self:start;max-width:190px;order:-1;margin-bottom:8px}
+  section{padding:64px 0}
+  .project{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">Kadidiatou Sima<span>.</span></a>
+    <ul class="links">
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#experience">Expérience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Portfolio</p>
+      <h1>Kadidiatou Sima</h1>
+      <p class="role">Développeuse Full Stack · Web &amp; Mobile</p>
+      <p class="intro">Je conçois et développe des applications web et mobiles, de l'API à l'interface : intégration d'API REST, solutions de paiement et portefeuilles numériques, avec une approche Agile et un intérêt croissant pour l'intelligence artificielle.</p>
+      <div class="meta">
+        <span class="chip">📍 Dakar, Sénégal</span>
+        <span class="chip">Disponible pour de nouvelles opportunités</span>
+      </div>
+      <div class="btns">
+        <a href="#projets" class="btn primary">Voir mes projets</a>
+        <a href="CV-Kadidiatou-Sima.pdf" class="btn ghost" download>Télécharger mon CV</a>
+      </div>
+    </div>
+    <div class="portrait"><img src="photo.jpg" alt="Portrait de Kadidiatou Sima" width="480" height="480"></div>
+  </div>
+</header>
+
+<section id="apropos">
+  <div class="wrap about-grid reveal">
+    <div>
+      <p class="eyebrow">À propos</p>
+      <h2>Des maths au code</h2>
+      <p style="margin-top:20px">Titulaire d'une <strong>Licence en Mathématiques</strong> (UCAD) et d'une <strong>Licence en Transformation Digitale, option Développement d'applications</strong> (Institut des Technologies du Digital), j'ai gardé de ma formation scientifique le goût de la rigueur et de la résolution de problèmes.</p>
+      <p>Aujourd'hui développeuse Full Stack, je travaille sur des applications web et mobiles liées aux paiements et aux portefeuilles numériques, avec Node.js/TypeScript, React, Angular et Flutter.</p>
+      <p>J'ai aussi exercé comme <strong>Scrum Master</strong> : animation des cérémonies, suivi des sprints et coordination avec le Product Owner. Je sais donc travailler en équipe autant que livrer du code.</p>
+    </div>
+    <div class="stats">
+      <img class="about-photo" src="photo-2.jpg" alt="Kadidiatou Sima" width="500" height="500" loading="lazy">
+      <div class="stat"><b>Major de promotion</b><span>Licence Transformation Digitale, mention Très bien</span></div>
+      <div class="stat"><b>Top 100 mondial</b><span>IBM TechXchange — projet IA pour l'agriculture</span></div>
+      <div class="stat"><b>8 certifications</b><span>IBM (IA, Cloud, Design Thinking) et Red Hat</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="competences">
+  <div class="wrap reveal">
+    <p class="eyebrow">Compétences</p>
+    <h2>Ma boîte à outils</h2>
+    <p class="lead">Les technologies que j'utilise au quotidien, du mobile au déploiement.</p>
+    <div class="skills">
+      <div class="skill"><h3>Frontend &amp; Mobile</h3><div class="tags"><span class="tag">React</span><span class="tag">Angular</span><span class="tag">Flutter / Dart</span><span class="tag">TypeScript</span><span class="tag">HTML / CSS</span></div></div>
+      <div class="skill"><h3>Backend</h3><div class="tags"><span class="tag">Node.js</span><span class="tag">NestJS</span><span class="tag">Spring Boot</span><span class="tag">Java</span><span class="tag">Go</span><span class="tag">API REST</span><span class="tag">PostgreSQL</span></div></div>
+      <div class="skill"><h3>Outils &amp; DevOps</h3><div class="tags"><span class="tag">Git</span><span class="tag">Docker</span><span class="tag">Firebase</span><span class="tag">Keycloak</span><span class="tag">JHipster</span><span class="tag">Linux (Red Hat)</span></div></div>
+      <div class="skill"><h3>Méthodes &amp; Design</h3><div class="tags"><span class="tag">Agile / Scrum</span><span class="tag">Jira</span><span class="tag">Design Thinking</span><span class="tag">Figma</span><span class="tag">Canva</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projets">
+  <div class="wrap reveal">
+    <p class="eyebrow">Projets</p>
+    <h2>Réalisations</h2>
+    <p class="lead">Une sélection de projets sur lesquels j'ai travaillé, en entreprise et en innovation.</p>
+    <div class="projects">
+      <article class="project">
+        <div>
+          <p class="kicker">Fintech · 2026</p>
+          <h3>TiPay <span class="live">En ligne</span></h3>
+          <p>Plateforme de cartes cadeaux et de portefeuille numérique, avec une application mobile, des interfaces web et plusieurs services backend.</p>
+          <div class="tags"><span class="tag">Flutter</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">NestJS</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></div>
+          <div style="margin-top:20px"><a class="btn primary" href="https://tipayconnect.com/" target="_blank" rel="noopener">Visiter TiPay Marketplace ↗</a></div>
+        </div>
+        <ul>
+          <li>Parcours d'achat et d'utilisation de chèques cadeaux, du paiement à l'activation dans l'application mobile.</li>
+          <li>Vérification par SMS (OTP), activation de compte et création de portefeuille numérique.</li>
+          <li>Interfaces web en React/TypeScript : page d'accueil, sélection de cartes cadeaux, espace marchands.</li>
+          <li>Liens profonds (deeplinks) pour ouvrir un chèque cadeau directement dans l'application.</li>
+          <li>Campagnes de tests de charge (k6) et rapports d'analyse ayant contribué au passage à un traitement asynchrone des transactions.</li>
+        </ul>
+      </article>
+      <article class="project">
+        <div>
+          <p class="kicker">Intelligence artificielle · 2024 – en cours</p>
+          <h3>Projet IA pour l'agriculture</h3>
+          <p>Solution intelligente visant à améliorer la productivité agricole.</p>
+          <span class="badge">Top 100 mondial — IBM TechXchange</span>
+        </div>
+        <ul>
+          <li>Conception de la solution et travail sur le prototypage.</li>
+          <li>Intégration technique des différentes briques du projet.</li>
+          <li>Projet sélectionné parmi les 100 meilleurs au niveau mondial lors de l'IBM TechXchange.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap reveal">
+    <p class="eyebrow">Expérience</p>
+    <h2>Parcours professionnel</h2>
+    <p class="lead">Du développement front-end à la gestion d'équipe Agile, puis au Full Stack.</p>
+    <div class="timeline">
+      <div class="item"><p class="date">Août 2026 — Aujourd'hui</p><h3>Développeuse Full Stack</h3><p class="org">TiPay · CDD</p><p>Développement d'applications web et mobiles, d'API REST et de fonctionnalités liées aux paiements et aux portefeuilles numériques. Node.js/TypeScript, Angular, React, Flutter, Docker, Git.</p></div>
+      <div class="item"><p class="date">Fév. 2026 — Août 2026</p><h3>Développeuse Full Stack</h3><p class="org">TiPay · Stage</p><p>Développement et intégration de fonctionnalités web et mobile, d'API REST et de solutions de paiement. Participation aux tests et au travail en équipe.</p></div>
+      <div class="item"><p class="date">Oct. 2025 — Mars 2026</p><h3>Scrum Master</h3><p class="org">ZIAUM · Prestation de service</p><p>Animation des cérémonies Scrum, suivi des tâches, coordination avec le Product Owner, identification et levée des blocages.</p></div>
+      <div class="item"><p class="date">Juin 2025 — Sept. 2025</p><h3>Scrum Master &amp; Développeuse Front-end</h3><p class="org">Africanity Group · Alternance</p><p>Développement d'interfaces web et suivi des projets en méthode Agile. Coordination de l'équipe et suivi des objectifs de sprint.</p></div>
+      <div class="item"><p class="date">Sept. 2024 — Mars 2025</p><h3>Scrum Master &amp; Développeuse Front-end</h3><p class="org">Gaïdé Talent Provider · Stage</p><p>Conception et développement d'interfaces web, organisation des sprints et suivi des tâches avec Jira.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="formation">
+  <div class="wrap reveal">
+    <p class="eyebrow">Formation</p>
+    <h2>Diplômes &amp; certifications</h2>
+    <p class="lead">Une base scientifique solide, complétée par une formation au développement et des certifications reconnues.</p>
+    <div class="edu-grid">
+      <div>
+        <h3 class="sub">Diplômes</h3>
+        <div class="timeline">
+          <div class="item"><p class="date">2024 — 2026</p><h3>Licence Transformation Digitale, option Développement d'applications</h3><p class="org">Institut des Technologies du Digital, Dakar</p><p>Mention Très bien · Major de promotion</p></div>
+          <div class="item"><p class="date">2021 — 2025</p><h3>Licence de Mathématiques</h3><p class="org">Université Cheikh Anta Diop, Dakar</p></div>
+          <div class="item"><p class="date">2020</p><h3>Baccalauréat série S1</h3><p class="org">Lycée Ahoune Sané, Bignona</p></div>
+        </div>
+        <h3 class="sub" style="margin-top:36px">Langues</h3>
+        <div class="langs"><span class="chip">Français</span><span class="chip">Anglais (intermédiaire)</span><span class="chip">Wolof</span><span class="chip">Diola</span><span class="chip">Manding</span></div>
+      </div>
+      <div>
+        <h3 class="sub">Certifications</h3>
+        <ul class="certs">
+          <li>Red Hat System Administration II (RH134)<span>2025</span></li>
+          <li>Red Hat System Administration I (RH124)<span>2024</span></li>
+          <li>IBM Project-Based Learning en Intelligence Artificielle<span>2024</span></li>
+          <li>IBM — Principes fondamentaux de l'IA<span>2024</span></li>
+          <li>IBM — Génération et optimisation de code avec Granite<span>2024</span></li>
+          <li>IBM — Parcours vers le Cloud<span>2024</span></li>
+          <li>IBM Enterprise Design Thinking Practitioner<span>2024</span></li>
+          <li>IBM — Principes fondamentaux de la cybersécurité<span>2024</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap reveal">
+    <p class="eyebrow">Contact</p>
+    <h2>Travaillons ensemble</h2>
+    <p class="lead">Je suis ouverte aux opportunités de développement Full Stack, web et mobile. N'hésitez pas à me contacter.</p>
+    <div class="btns">
+      <a href="mailto:khadysima436@gmail.com" class="btn primary">khadysima436@gmail.com</a>
+      <!-- Remplace les deux liens ci-dessous par tes vraies URL -->
+      <a href="https://www.linkedin.com/in/TON-PROFIL" class="btn ghost" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/TON-PSEUDO" class="btn ghost" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="y"></span> Kadidiatou Sima · Dakar, Sénégal</footer>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
